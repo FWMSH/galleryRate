@@ -1,0 +1,118 @@
+ScreenManagement:
+    VotingScreen
+
+<VoteButton>:
+    font_size: 75
+    size_hint: (1, 0.85)
+
+<VoteLabel>:
+    font_size: 25
+    size_hint: (1, 0.15)
+
+<VotingScreen>:
+    name: 'voting'
+
+    BoxLayout:
+        orientation: 'vertical'
+        
+        Label:
+            text: ''
+            size_hint: (1,0.2)
+        
+        Label:
+            text: root.manager.title
+            font_size: 80
+            font_name: root.manager.title_font
+            size_hint: (1,0.15)
+        
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, 0.4)
+            
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint: (0.2, 1)
+                
+                VoteButton:
+                    text: '5'
+                    font_name: root.manager.button_font
+                    on_release: root.manager.add_vote(5)
+                    
+                VoteLabel:
+                    text: root.manager.label_5
+                    font_name: root.manager.label_font
+
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint: (0.2, 1)
+                
+                VoteButton:
+                    text: '4'
+                    font_name: root.manager.button_font
+                    on_release: root.manager.add_vote(4)
+                    
+                VoteLabel:
+                    text: root.manager.label_4
+                    font_name: root.manager.label_font
+
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint: (0.2, 1)
+                
+                VoteButton:
+                    text: '3'
+                    font_name: root.manager.button_font
+                    on_release: root.manager.add_vote(3)
+                    
+                VoteLabel:
+                    text: root.manager.label_3
+                    font_name: root.manager.label_font
+
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint: (0.2, 1)
+                
+                VoteButton:
+                    text: '2'
+                    font_name: root.manager.button_font
+                    on_release: root.manager.add_vote(2)
+                    
+                VoteLabel:
+                    text: root.manager.label_2
+                    font_name: root.manager.label_font
+
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint: (0.2, 1)
+                
+                VoteButton:
+                    text: '1'
+                    font_name: root.manager.button_font
+                    on_release: root.manager.add_vote(1)
+                    
+                VoteLabel:
+                    text: root.manager.label_1
+                    font_name: root.manager.label_font
+
+		Label:
+            text: root.manager.subtitle
+            font_size: 40
+            font_name: root.manager.subtitle_font
+            size_hint: (1,0.1)
+            
+        Label:		
+            text: ''
+            size_hint: (1,0.15)
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
