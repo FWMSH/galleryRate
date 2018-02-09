@@ -1,2 +1,2 @@
 # galleryRate
-A n app for collecting gallery rating data
+An app for collecting gallery rating data
