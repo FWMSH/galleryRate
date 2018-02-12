@@ -4,10 +4,18 @@ ScreenManagement:
 <VoteButton>:
     font_size: 75
     size_hint: (1, 0.85)
+    text_size: self.size
+    halign: 'center'
+    valign: 'center'
+    markup: True
 
 <VoteLabel>:
     font_size: 25
     size_hint: (1, 0.15)
+    text_size: self.size
+    halign: 'center'
+    valign: 'center'
+    markup: True
 
 <VotingScreen>:
     name: 'voting'
@@ -16,14 +24,14 @@ ScreenManagement:
         orientation: 'vertical'
         
         Label:
-            text: ''
-            size_hint: (1,0.2)
-        
-        Label:
             text: root.manager.title
             font_size: 80
             font_name: root.manager.title_font
-            size_hint: (1,0.15)
+            size_hint: (1,0.35)
+            text_size: self.size
+            halign: 'center'
+            valign: 'center'
+            markup: True
         
         BoxLayout:
             orientation: 'horizontal'
@@ -34,7 +42,7 @@ ScreenManagement:
                 size_hint: (0.2, 1)
                 
                 VoteButton:
-                    text: '5'
+                    text: root.manager.button_5
                     font_name: root.manager.button_font
                     on_release: root.manager.add_vote(5)
                     
@@ -47,7 +55,7 @@ ScreenManagement:
                 size_hint: (0.2, 1)
                 
                 VoteButton:
-                    text: '4'
+                    text: root.manager.button_4
                     font_name: root.manager.button_font
                     on_release: root.manager.add_vote(4)
                     
@@ -60,7 +68,7 @@ ScreenManagement:
                 size_hint: (0.2, 1)
                 
                 VoteButton:
-                    text: '3'
+                    text: root.manager.button_3
                     font_name: root.manager.button_font
                     on_release: root.manager.add_vote(3)
                     
@@ -73,7 +81,7 @@ ScreenManagement:
                 size_hint: (0.2, 1)
                 
                 VoteButton:
-                    text: '2'
+                    text: root.manager.button_2
                     font_name: root.manager.button_font
                     on_release: root.manager.add_vote(2)
                     
@@ -86,7 +94,7 @@ ScreenManagement:
                 size_hint: (0.2, 1)
                 
                 VoteButton:
-                    text: '1'
+                    text: root.manager.button_1
                     font_name: root.manager.button_font
                     on_release: root.manager.add_vote(1)
                     
@@ -98,11 +106,11 @@ ScreenManagement:
             text: root.manager.subtitle
             font_size: 40
             font_name: root.manager.subtitle_font
-            size_hint: (1,0.1)
-            
-        Label:		
-            text: ''
-            size_hint: (1,0.15)
+            size_hint: (1,0.25)
+            text_size: self.size
+            halign: 'center'
+            valign: 'center'
+            markup: True
 
     
     

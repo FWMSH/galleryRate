@@ -39,6 +39,11 @@ class ScreenManagement(ScreenManager):
     label_3 = ''
     label_2 = ''
     label_1 = 'Needs work'
+    button_5 = '5'
+    button_4 = '4'
+    button_3 = '3'
+    button_2 = '2'
+    button_1 = '1'
     label_font = 'Roboto-Regular.ttf'
     subtitle = "Tap a button to give us a score!"
     subtitle_font = 'Roboto-Bold.ttf'
@@ -93,35 +98,47 @@ class ScreenManagement(ScreenManager):
 
                 line = line.split('#',1)[0] # Check for comment symbol (#)
 
-                if line[0:5].lower() == 'path:':
+                if line[0:5].lower() == 'path:': # Where the file is written
                     self.csv_path = line[5:].strip()
-                elif line[0:6].lower() == 'title:':
-                    self.title = line[6:].strip()
-                elif line[0:11].lower() == 'font_title:':
+                elif line[0:6].lower() == 'title:': # The large text at the top
+                    self.title = line[6:].strip().replace('\\n', '\n')
+                elif line[0:11].lower() == 'font_title:': # Title font
                     self.title_font = line[11:].strip()
-                elif line[0:6].lower() == 'label_':
+                elif line[0:6].lower() == 'label_': # The text *under* the buttons
                     temp = line[6]
                     if int(temp) == 1:
-                        self.label_1 = line[8:].strip()
+                        self.label_1 = line[8:].strip().replace('\\n', '\n')
                     if int(temp) == 2:
-                        self.label_2 = line[8:].strip()
+                        self.label_2 = line[8:].strip().replace('\\n', '\n')
                     if int(temp) == 3:
-                        self.label_3 = line[8:].strip()
+                        self.label_3 = line[8:].strip().replace('\\n', '\n')
                     if int(temp) == 4:
-                        self.label_4 = line[8:].strip()
+                        self.label_4 = line[8:].strip().replace('\\n', '\n')
                     if int(temp) == 5:
-                        self.label_5 = line[8:].strip()
-                elif line[0:12].lower() == 'font_label:':
+                        self.label_5 = line[8:].strip().replace('\\n', '\n')
+                elif line[0:7].lower() == 'button_': # The text *in* the buttons
+                    temp = line[7]
+                    if int(temp) == 1:
+                        self.button_1 = line[9:].strip().replace('\\n', '\n')
+                    if int(temp) == 2:
+                        self.button_2 = line[9:].strip().replace('\\n', '\n')
+                    if int(temp) == 3:
+                        self.button_3 = line[9:].strip().replace('\\n', '\n')
+                    if int(temp) == 4:
+                        self.button_4 = line[9:].strip().replace('\\n', '\n')
+                    if int(temp) == 5:
+                        self.button_5 = line[9:].strip().replace('\\n', '\n')
+                elif line[0:12].lower() == 'font_label:': # Label font
                     self.label_font = line[12:].strip()
-                elif line[0:9].lower() == 'subtitle:':
-                    self.subtitle = line[9:].strip()
-                elif line[0:14].lower() == 'font_subtitle:':
+                elif line[0:9].lower() == 'subtitle:': # The text at the bottom
+                    self.subtitle = line[9:].strip().replace('\\n', '\n')
+                elif line[0:14].lower() == 'font_subtitle:': # Subtitle font
                     self.subtitle_font = line[14:].strip()
-                elif line[0:12].lower()  == 'date_string:':
+                elif line[0:12].lower()  == 'date_string:': # False = seconds from UNIX 0
                     if line[12:].strip().lower() == 'false':
                         self.date_string = False
-                elif line[0:12].lower() == 'font_button:':
-                    self.button_font = line[12:].strip()             
+                elif line[0:12].lower() == 'font_button:': # Button text font
+                    self.button_font = line[12:].strip()              
         
     def __init__(self):
         Clock.schedule_interval(self.check_for_block, 1./20)
