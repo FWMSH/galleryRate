@@ -1,5 +1,5 @@
 from kivy.config import Config
-Config.set('graphics', 'fullscreen','auto')
+#Config.set('graphics', 'fullscreen','auto')
 Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
 
 from kivy.app import App
@@ -92,7 +92,8 @@ class ScreenManagement(ScreenManager):
 
     def get_config(self):
         # Function to parse arguments from a configuration file
-        
+        # dt passed by clock. We ignore it
+
         with open('config.conf', 'r') as f:
             for line in f:
 
@@ -138,11 +139,46 @@ class ScreenManagement(ScreenManager):
                     if line[12:].strip().lower() == 'false':
                         self.date_string = False
                 elif line[0:12].lower() == 'font_button:': # Button text font
-                    self.button_font = line[12:].strip()              
+                    self.button_font = line[12:].strip()           
+
+    def refresh_config(self, dt):
+        # Function to reread the configuration file and force widget refreshes
+        # dt passed by clock. We ignore it
+
+        # Read variables from the config file
+        self.get_config()
+
+        scr = self.get_screen('voting')
+
+        scr.title.text = self.title
+        scr.title.font_name = self.title_font
+        scr.subtitle.text = self.subtitle
+        scr.subtitle.font_name = self.subtitle_font
+        scr.button_1.text = self.button_1
+        scr.button_1.font_name = self.button_font
+        scr.button_2.text = self.button_2
+        scr.button_2.font_name = self.button_font
+        scr.button_3.text = self.button_3
+        scr.button_3.font_name = self.button_font
+        scr.button_4.text = self.button_4
+        scr.button_4.font_name = self.button_font
+        scr.button_5.text = self.button_5
+        scr.button_5.font_name = self.button_font
+        scr.label_1.text = self.label_1
+        scr.label_1.font_name = self.label_font
+        scr.label_2.text = self.label_2
+        scr.label_2.font_name = self.label_font
+        scr.label_3.text = self.label_3
+        scr.label_3.font_name = self.label_font
+        scr.label_4.text = self.label_4
+        scr.label_4.font_name = self.label_font
+        scr.label_5.text = self.label_5
+        scr.label_5.font_name = self.label_font
         
     def __init__(self):
         Clock.schedule_interval(self.check_for_block, 1./20)
         Clock.schedule_interval(self.record_votes, 60.)
+        Clock.schedule_interval(self.refresh_config, 60.)
         super(ScreenManagement, self).__init__()
         self.get_config()
 

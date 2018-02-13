@@ -19,11 +19,25 @@ ScreenManagement:
 
 <VotingScreen>:
     name: 'voting'
+    title: title
+    button_1: button_1
+    button_2: button_2
+    button_3: button_3
+    button_4: button_4
+    button_5: button_5
+    label_1: label_1
+    label_2: label_2
+    label_3: label_3
+    label_4: label_4
+    label_5: label_5
+    subtitle: subtitle
+    
 
     BoxLayout:
         orientation: 'vertical'
         
         Label:
+            id: title
             text: root.manager.title
             font_size: 80
             font_name: root.manager.title_font
@@ -42,11 +56,13 @@ ScreenManagement:
                 size_hint: (0.2, 1)
                 
                 VoteButton:
+                    id: button_5
                     text: root.manager.button_5
                     font_name: root.manager.button_font
                     on_release: root.manager.add_vote(5)
                     
                 VoteLabel:
+                    id: label_5
                     text: root.manager.label_5
                     font_name: root.manager.label_font
 
@@ -55,12 +71,14 @@ ScreenManagement:
                 size_hint: (0.2, 1)
                 
                 VoteButton:
+                    id: button_4
                     text: root.manager.button_4
                     font_name: root.manager.button_font
                     on_release: root.manager.add_vote(4)
                     
                 VoteLabel:
                     text: root.manager.label_4
+                    id: label_4
                     font_name: root.manager.label_font
 
             BoxLayout:
@@ -68,11 +86,13 @@ ScreenManagement:
                 size_hint: (0.2, 1)
                 
                 VoteButton:
+                    id: button_3
                     text: root.manager.button_3
                     font_name: root.manager.button_font
                     on_release: root.manager.add_vote(3)
                     
                 VoteLabel:
+                    id: label_3
                     text: root.manager.label_3
                     font_name: root.manager.label_font
 
@@ -81,11 +101,13 @@ ScreenManagement:
                 size_hint: (0.2, 1)
                 
                 VoteButton:
+                    id: button_2
                     text: root.manager.button_2
                     font_name: root.manager.button_font
                     on_release: root.manager.add_vote(2)
                     
                 VoteLabel:
+                    id: label_2
                     text: root.manager.label_2
                     font_name: root.manager.label_font
 
@@ -94,15 +116,18 @@ ScreenManagement:
                 size_hint: (0.2, 1)
                 
                 VoteButton:
+                    id: button_1
                     text: root.manager.button_1
                     font_name: root.manager.button_font
                     on_release: root.manager.add_vote(1)
                     
                 VoteLabel:
+                    id: label_1
                     text: root.manager.label_1
                     font_name: root.manager.label_font
 
 		Label:
+            id: subtitle
             text: root.manager.subtitle
             font_size: 40
             font_name: root.manager.subtitle_font
