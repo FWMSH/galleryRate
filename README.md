@@ -1,5 +1,5 @@
 # galleryRate
-An app for collecting gallery rating data
+An app for collecting audience feedback
 
 At launch, the app will create one button for every file `xxx.conf` in the buttons directory, in alphabetical order by filename from left to right. The following parameters can placed in each conf file:
 * `text`: A text string to appear in the button
