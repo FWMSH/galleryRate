@@ -1,6 +1,8 @@
 # galleryRate
 An app for collecting audience feedback
 
+This app requires a Python 3 installation.
+
 At launch, the app will create one button for every file `xxx.conf` in the buttons directory, in alphabetical order by filename from left to right. The following parameters can placed in each conf file:
 * `text`: A text string to appear in the button
 * `label`: A text string to appear below the button
