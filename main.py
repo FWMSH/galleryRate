@@ -198,7 +198,7 @@ class ScreenManagement(ScreenManager):
         
         Clock.schedule_once(self.build_screen, 1)
         Clock.schedule_interval(self.check_for_block, 1./20)
-        #Clock.schedule_interval(self.record_votes, 60.)
+        Clock.schedule_interval(self.record_votes, 60.)
         
 class MainApp(App):
     
